@@ -21,6 +21,15 @@ export function Home() {
 		e.preventDefault();
 		setTaskLists(taskLists.filter(t => t.id != id));
 	};
+
+	const counter = () => {
+		if (taskLists.length == 0) {
+			return "No tasks";
+		} else {
+			return <li>{taskLists.length} Tasks</li>;
+		}
+	};
+
 	return (
 		<div className="container">
 			<div className="title">
@@ -41,7 +50,7 @@ export function Home() {
 					{taskLists !== [] ? (
 						<li>
 							{taskLists.map(t => (
-								<li className="list-group-item">
+								<li key={t.value} className="list-group-item">
 									{t.value}
 									<button
 										className="btn btn-danger float-right"
@@ -52,7 +61,7 @@ export function Home() {
 							))}
 						</li>
 					) : null}
-					<li className="list-group-item">contador</li>
+					<li className="list-group-item">{counter()}</li>
 				</ul>
 			</div>
 		</div>
