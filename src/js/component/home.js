@@ -19,7 +19,7 @@ export function Home() {
 	};
 	const deletetask = (e, id) => {
 		e.preventDefault();
-		setTaskLists(taskLists.filter(t => t.id != id));
+		setTaskLists(taskLists.filter(t => t.id !== id));
 	};
 
 	const counter = () => {
